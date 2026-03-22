@@ -129,7 +129,9 @@ python train.py
 **SURYA SAKTHIVEL**
 
 **RAGUL SIVABAL**
+
 MSc AI, Data Science & Digital Business
+
 Berlin, Germany
 
 ---

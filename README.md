@@ -1,137 +1,106 @@
-# 🚦 Autonomous Traffic Signal Control using Reinforcement Learning
+🚦 Autonomous Traffic Signal Control using Reinforcement Learning
+📌 Overview
 
-## 📌 Overview
+Urban traffic congestion at signalized intersections leads to increased delays, fuel consumption, and emissions. Traditional fixed-time and actuated traffic systems often fail to adapt to dynamic traffic patterns.
 
-Traffic congestion at urban intersections leads to increased delays, fuel consumption, and emissions. This project explores **adaptive traffic signal control** using **Reinforcement Learning (RL)** and extends to **Multi-Agent Reinforcement Learning (MARL)** for coordinated traffic management.
+This project explores adaptive traffic signal control using Reinforcement Learning (RL) and evaluates multiple learning approaches, including a hybrid model enhanced with a Small Language Model (SLM) for explainability.
 
-The study compares three approaches:
+📂 Dataset
 
-* Tabular Q-Learning
-* Deep Q-Networks (DQN)
-* Hybrid Q-Learning with a Small Language Model (SLM) advisor
+The dataset used in this project is publicly available on Kaggle:
 
----
+🔗 https://www.kaggle.com/datasets/olaidegabriel/traffic-dataset
 
-## 📄 Abstract
+This dataset was used for:
 
-Urban traffic congestion at signalized intersections significantly contributes to delays, fuel consumption, and emissions. This project investigates RL-based adaptive traffic control and explores MARL for coordinated junction management.
+Traffic flow analysis
+Congestion pattern identification
+Training and evaluation of RL models
+🎯 Objectives
+Develop intelligent traffic signal control using RL
+Compare different RL models and their performance
+Analyze learning behavior and decision-making patterns
+Introduce explainability into RL using language models
+Identify limitations and future research directions
+🧠 Models Implemented
+🔹 Tabular Q-Learning
+Discrete state-action learning
+Step-capping to control exploration
+Encourages conservative, short-horizon decisions
+🔹 Deep Q-Network (DQN)
+Neural network approximation of Q-values
+Handles larger and more complex state spaces
+Exhibits action selection instability in some scenarios
+🔹 Hybrid Q-Learning + Small Language Model (SLM)
+Integrates a language model for explainability
 
-Three controllers were evaluated using simulation data: **Q-Learning**, **DQN**, and a **hybrid Q-Learning + SLM advisor** that provides congestion insights and explainable recommendations.
+Capabilities:
 
-Despite differences in learning behavior, all models converged to a similar average waiting time (~29.46 seconds). DQN and step-capped Q-Learning showed single-action bias, while step-capping promoted conservative decision-making. The SLM-enhanced model improved interpretability with minimal trade-offs in performance.
+Generates congestion labels
+Provides action recommendations
+Produces human-readable decision traces
+⚙️ Methodology
+Used secondary traffic simulation data
+Applied consistent training and evaluation conditions across models
 
-The findings emphasize the importance of reward design, state representation, and training strategy, while highlighting future directions in MARL coordination and sim-to-real transfer.
+Evaluation Metrics:
 
----
+Mean waiting time
+Learning dynamics
+Action distribution patterns
+Reward convergence behavior
+📊 Results
+⏱️ All models converged to a similar average waiting time (~29.46 seconds)
+⚠️ DQN and step-capped Q-Learning showed single-action dominance issues
+🧭 Step-capped Q-Learning favored short-term conservative strategies
+💡 SLM-enhanced model improved interpretability with minimal trade-offs
+🔍 Key Insights
+RL performance is highly sensitive to:
+Reward design
+State representation
+Training vs evaluation setup
+Explainability improves transparency but not necessarily performance
+🚀 Future Work
+Develop discriminative reward functions
+Scale to Multi-Agent Reinforcement Learning (MARL)
+Improve sim-to-real transfer
+Reduce action-selection bias in deep RL models
+🛠️ Tech Stack
+Python
+Reinforcement Learning (Q-Learning, DQN)
+Machine Learning / AI
+Data Analysis
+📁 Project Structure
+├── data/
+├── models/
+├── training/
+├── evaluation/
+├── results/
+├── README.md
 
-## 🎯 Objectives
+👥 Authors
+👤 Surya Sakthivel
+GitHub: https://github.com/Surya0500
+LinkedIn: https://www.linkedin.com/in/surya-sakthivel-de/
+👤 Ragul Sivabal
+GitHub: https://github.com/ragul16g-oss
+LinkedIn: https://linkedin.com/in/ragul-sivabal
+📖 Citation
 
-* Implement RL-based traffic signal controllers
-* Compare performance across different RL methods
-* Analyze learning dynamics and action distributions
-* Introduce explainability using an SLM-enhanced agent
+If you use this work, please cite:
 
----
+@misc{traffic_rl_project,
+  author = {Surya Sakthivel and Ragul Sivabal},
+  title = {Autonomous Traffic Signal Control using Reinforcement Learning},
+  year = {2026},
+  publisher = {GitHub},
+  url = {https://github.com/Surya0500}
+}
 
-## 🧠 Models Implemented
+🤝 Contributing
 
-### 🔹 Tabular Q-Learning
+Contributions and suggestions are welcome!
 
-* Discrete state-action learning
-* Step-capping to control exploration
+📜 License
 
-### 🔹 Deep Q-Network (DQN)
-
-* Neural network approximation of Q-values
-* Suitable for larger state spaces
-
-### 🔹 Hybrid Q-Learning + SLM
-
-* Adds explainability layer
-* Generates:
-
-  * Congestion labels
-  * Action recommendations
-  * Human-readable decision traces
-
----
-
-## ⚙️ Environment & Tools
-
-* **SUMO (Simulation of Urban Mobility)**
-* Python
-* Reinforcement Learning frameworks
-* Deep Learning libraries
-
----
-
-## 📊 Results Summary
-
-* All models converged to **~29.46s average waiting time**
-* DQN and Q-Learning showed **single-action dominance**
-* Step-capping led to **short-term conservative behavior**
-* SLM improved **interpretability** without performance gain
-
----
-
-## 📈 Key Insights
-
-* Reward design critically affects performance
-* State representation impacts learning quality
-* Training and evaluation must be aligned
-* Explainable RL is feasible with minimal overhead
-
----
-
-## 🔬 Future Work
-
-* Advanced reward shaping techniques
-* Network-wide MARL coordination
-* Real-world (sim-to-real) deployment validation
-* Handling dynamic and uncertain traffic demand
-
----
-
-## 📁 Project Structure
-
-```
-├── data/                # Traffic simulation data
-├── models/              # RL models (Q-Learning, DQN, Hybrid)
-├── environment/         # SUMO configuration files
-├── training/            # Training scripts
-├── evaluation/          # Performance evaluation scripts
-├── results/             # Output metrics and plots
-└── README.md
-```
-
----
-
-## 🚀 How to Run
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/your-repo-name.git
-
-# Navigate to project
-cd your-repo-name
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run simulation / training
-python train.py
-```
-
----
-
-## 👤 Author
-
-**SURYA SAKTHIVEL**
-
-**RAGUL SIVABAL**
-
-MSc AI, Data Science & Digital Business
-
-Berlin, Germany
-
----
+This project is for academic and research purposes.
